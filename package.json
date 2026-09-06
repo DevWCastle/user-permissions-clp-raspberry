@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "./src/index.ts",
   "scripts": {
-    "dev": "ts-node ./src/index.ts",
+    "dev": "nodemon --exec tsx ./src/index.ts",
     "build": "tsc",
     "start": "node ./dist/index.js"
   },
@@ -28,6 +28,8 @@
     "typescript": "^7.0.2"
   },
   "devDependencies": {
-    "ts-node": "^10.9.2"
+    "nodemon": "^3.1.14",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.23.13"
   }
 }
