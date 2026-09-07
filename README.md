@@ -16,4 +16,8 @@
 
 ## PARA DAR RUN NA NOVA IMG NA PORTA ESCOLHIDA
 
-    docker run -d -p 4040:4040 --name clp-backend api-clp  
+   
+    docker build -t api-clp .
+    docker stop clp-backend
+    docker rm clp-backend
+    docker run -d -p 4040:4040 -v sqlite_data:/app/database.sqlite --name clp-backend api-clp
