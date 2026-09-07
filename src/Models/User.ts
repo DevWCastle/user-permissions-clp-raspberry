@@ -1,5 +1,5 @@
 import { DataTypes } from 'sequelize';
-import sequelize from '../db'; // Importa a conexão que você já criou
+import sequelize from '../database/db'; // Importa a conexão que você já criou
 
 const User = sequelize.define('User', {
     id: {
