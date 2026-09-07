@@ -3,7 +3,9 @@
     npm i -D ts-node
     npm i express cors
     npm i -D @types/express @types/cors
-
+    
+    npm install sqlite3
+    npm install -D @types/sqlite3
 
  ## TS CONFIG
     "rootDir": "./src"
