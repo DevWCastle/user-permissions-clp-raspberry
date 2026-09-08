@@ -6,6 +6,9 @@
     
     npm install sqlite3
     npm install -D @types/sqlite3
+    
+    npm install bcryptjs jsonwebtoken
+    npm install -D @types/bcryptjs @types/jsonwebtoken
 
  ## TS CONFIG
     "rootDir": "./src"
