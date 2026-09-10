@@ -1,13 +1,20 @@
 import { Request, Response } from 'express';
 import { UserService } from '../../Services/UserSevice';
 import { UserRepository } from '../../Repository/UserRepository';
+import { AuthService } from '../../Services/AuthService';
+
 
 
 export class UserController {
   private userService: UserService;
+  private authService: AuthService;
+  private userRespository: UserRepository = new UserRepository()
 
   constructor() {
-    this.userService = new UserService( new UserRepository() );
+
+    this.userService = new UserService(this.userRespository);
+    this.authService = new AuthService(this.userRespository);
+
   }
 
   public getAllUsers = async (req: Request, res: Response): Promise<void> => {
@@ -31,4 +38,19 @@ export class UserController {
       res.status(400).json({ error: error.message });
     }
   };
+
+  public login = async (req: Request, res: Response) => {
+    try{
+
+      const {email, password} = req.body
+
+      const token = await this.authService.login(email, password)
+
+      res.status(200).json({ token: token})
+
+
+    }catch(error: any){
+      res.status(401).json({error: error.message})
+    }
+  }
 }
