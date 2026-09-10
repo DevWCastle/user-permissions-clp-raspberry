@@ -10,7 +10,7 @@ export class UserRepository {
     return await User.findByPk(id, { attributes: { exclude: ['password'] } });
   }
 
-  async findByEmail(email: string) {
+  async findByEmail(email: string){
     return await User.findOne({ where: { email } });
   }
 
